@@ -1,0 +1,47 @@
+<!-- templates/about/author.html -->
+{% extends "base.html" %}
+{% block title %}Технологии{% endblock %}
+{% block content %}
+{% load user_filters %}
+  <main role="main" class="container">
+    <div class="row">
+      <!-- Левый вспомогательный блок -->
+      <div class="col-md-3 mb-3 mt-1">
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="h3">
+                  Технологии
+                </div> 
+              </li>
+              <li class="list-group-item">
+                <div class="h6 text-muted">
+                  Здесь можно увидеть какие инструменты использовал автор для создания этого сайта
+                </div>
+              </li>
+            </ul>                                               
+          </div>                    
+        </div>                
+      </div>
+      <!-- Тело страницы -->
+      <div class="col-md-9">
+        <div class="card-body">                    
+          <div class="card-text">
+            <ul>
+            	<li>Sublime Text</li>
+            	<p>В этой программе я писал код</p>
+            	<li>PyCharm CE</li>
+            	<p>Здесь я писал более сложные коды</p>
+            	<li>Slack</li>
+            	<p>Тут я общался с другими программистами и получал помощь и советы</p>
+            	<li>Github</li>
+            	<p>И тут я выкладываю свой код сайта в интернет</p>
+            </ul>
+            	
+          </div>                    
+        </div>                
+      </div>            
+    </div>        
+  </main>
+{% endblock %}

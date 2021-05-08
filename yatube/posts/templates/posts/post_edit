@@ -1,0 +1,8 @@
+{% extends "base.html" %} 
+{% block title %}Новая запись{% endblock %}
+{% block content %}
+
+  	<h1>Страница /new/<h1>
+    
+
+{% endblock %}

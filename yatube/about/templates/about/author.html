@@ -1,0 +1,44 @@
+<!-- templates/about/author.html -->
+{% extends "base.html" %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+{% load user_filters %}
+  <main role="main" class="container">
+    <div class="row">
+      <!-- Левый вспомогательный блок -->
+      <div class="col-md-3 mb-3 mt-1">
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="h3">
+                  Об авторе
+                </div> 
+              </li>
+              <li class="list-group-item">
+                <div class="h6 text-muted">
+                  Здесь вы немного узнаете о создателе сайта
+                </div>
+              </li>
+            </ul>                                               
+          </div>                    
+        </div>                
+      </div>
+      <!-- Тело страницы -->
+      <div class="col-md-9">
+        <div class="card-body">                    
+          <div class="card-text">
+            <p>
+            	Меня зовут: <b>Лёва Нетреба</b><br>
+				И являюсь создателям этого сайта<br>
+			</p>
+			<hr>
+			<h4>Об авторе</h4>
+			<p>Я молодой программист который прилаживает себе путь в <b>мир it</b>, я проходил 3 небольших курса в основном они были про <b>Python</b> и сейчас прохожу большие курсы по <b>Python</b> в <b>Яндекс.Практикум</b> и разрабатываю этот сайт. Я разрабатывал разные небольшие сайты и программы для себя. Я немного знаю языки <b>Python</b> и <b>JavaScript</b>.</p>
+			<img src="" alt="">
+          </div>                    
+        </div>                
+      </div>            
+    </div>        
+  </main>
+{% endblock %}
