@@ -14,6 +14,8 @@
     {% include 'nav.html' %}
     <main>
         <div class="container">
+            <h1>{% block header %}{% endblock %}</h1>
+
             {% block content %}
             <!-- Содержимое страницы -->
             {% endblock %}
