@@ -38,7 +38,7 @@
         <div class="card-body">
           <p class="card-text">
             <!-- Ссылка на страницу автора в атрибуте href; username автора в тексте ссылки -->
-            <a href="/posts/{{ author.username }}/">
+            <a href="/{{ author.username }}/">
               <strong class="d-block text-gray-dark">
                 @{{ author.username }}
               </strong>
@@ -51,7 +51,7 @@
 ~~~~              <!-- Ссылка на редактирование, показывается только автору записи.
               Эту ссылку вы подключите в финальном задании спринта -->
               {% if user.username == author.username %}
-                <a class="btn btn-sm text-muted" href="/posts/{{ author.username }}/{{ post.id }}/edit" role="button">Редактировать</a>
+                <a class="btn btn-sm text-muted" href="/{{ author.username }}/{{ post.id }}/edit" role="button">Редактировать</a>
               {% endif %}
             </div>
             <!-- Дата публикации  -->
