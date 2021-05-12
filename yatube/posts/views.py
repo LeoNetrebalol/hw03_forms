@@ -105,7 +105,7 @@ def post_edit(request, username, post_id):
         }
 
         return render(request, 'posts/post_edit.html', context)
-    else:
-        return redirect('post', username=username, post_id=post_id)
+
+    return redirect('post', username=username, post_id=post_id)
 
 # Исправить group
