@@ -98,7 +98,7 @@ def post_edit(request, username, post_id):
 
             if form.is_valid():
                 post.save()
-                return redirect('index')
+                return redirect('post', username=username, post_id=post_id)
 
         context = {
             'form': form,
@@ -106,6 +106,5 @@ def post_edit(request, username, post_id):
 
         return render(request, 'posts/post_edit.html', context)
 
-    return redirect('post', username=username, post_id=post_id)
-
-# Исправить group
+    else:
+        return redirect('post', username=username, post_id=post_id)
