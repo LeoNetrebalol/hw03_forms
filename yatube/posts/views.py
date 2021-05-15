@@ -56,9 +56,13 @@ def profile(request, username):
 
 
 def post_view(request, username, post_id):
-    post = get_object_or_404(Post, author__username=username, pk=post_id)
+    author = get_object_or_404(Post, author__username=username, pk=post_id)
 
-    return render(request, "posts/post.html", {"post": post})
+    context = {
+        "post": author,
+    }
+
+    return render(request, "posts/post.html", context)
 
 
 @login_required
