@@ -56,10 +56,11 @@ def profile(request, username):
 
 
 def post_view(request, username, post_id):
-    author = get_object_or_404(Post, author__username=username, pk=post_id)
+    post = get_object_or_404(Post, author__username=username, pk=post_id)
 
     context = {
-        "post": author,
+        "post": post,
+        "author": post.author
     }
 
     return render(request, "posts/post.html", context)

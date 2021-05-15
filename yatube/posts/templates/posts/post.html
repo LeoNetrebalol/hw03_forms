@@ -9,11 +9,11 @@
         <div class="card-body">
           <div class="h2">
             <!-- Имя автора -->
-            {{ post.author.get_full_name }}
+            {{ author.get_full_name }}
           </div>
           <div class="h3 text-muted">
             <!-- username автора -->
-             @{{ post.author.username }}
+             @{{ author.username }}
           </div>
         </div>
         <ul class="list-group list-group-flush">
@@ -26,7 +26,7 @@
           <li class="list-group-item">
             <div class="h6 text-muted">
               <!--Количество записей -->
-              Записей: {{ post.author.posts.count }}
+              Записей: {{ author.posts.count }}
             </div>
           </li>
         </ul>
@@ -40,7 +40,7 @@
             <!-- Ссылка на страницу автора в атрибуте href; username автора в тексте ссылки -->
             <a href="/{{ author.username }}/">
               <strong class="d-block text-gray-dark">
-                @{{ post.author.username }}
+                @{{ author.username }}
               </strong>
             </a>
             <!-- Текст поста -->
@@ -50,8 +50,8 @@
             <div class="btn-group">
 ~~~~              <!-- Ссылка на редактирование, показывается только автору записи.
               Эту ссылку вы подключите в финальном задании спринта -->
-              {% if user.username == post.author.username %}
-                <a class="btn btn-sm text-muted" href="/{{ post.author.username }}/{{ post.id }}/edit" role="button">Редактировать</a>
+              {% if user.username == author.username %}
+                <a class="btn btn-sm text-muted" href="/{{ author.username }}/{{ post.id }}/edit" role="button">Редактировать</a>
               {% endif %}
             </div>
             <!-- Дата публикации  -->
