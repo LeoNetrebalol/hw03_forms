@@ -56,15 +56,9 @@ def profile(request, username):
 
 
 def post_view(request, username, post_id):
-    author = get_object_or_404(User, username=username)
-    post = get_object_or_404(Post, id=post_id)
+    post = get_object_or_404(Post, author__username=username, pk=post_id)
 
-    context = {
-        'post': post,
-        'author': author
-    }
-
-    return render(request, 'posts/post.html', context)
+    return render(request, "posts/post.html", {"post": post})
 
 
 @login_required
@@ -87,9 +81,9 @@ def new_post(request):
 
 @login_required
 def post_edit(request, username, post_id):
-    post = get_object_or_404(Post, id=post_id)
+    post = get_object_or_404(Post, author__username=username, pk=post_id)
 
-    if request.user.username == post.author.username:
+    if request.user.username == username:
         if request.method != 'POST':
             form = PostForm(instance=post)
 
