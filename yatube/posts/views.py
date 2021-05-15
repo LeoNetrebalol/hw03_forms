@@ -50,6 +50,7 @@ def profile(request, username):
     context = {
         'page': page,
         'author': author,
+        "posts_count": author.posts.count
     }
 
     return render(request, 'posts/profile.html', context)
@@ -60,7 +61,8 @@ def post_view(request, username, post_id):
 
     context = {
         "post": post,
-        "author": post.author
+        "author": post.author,
+        "posts_count": post.author.posts.count
     }
 
     return render(request, "posts/post.html", context)
