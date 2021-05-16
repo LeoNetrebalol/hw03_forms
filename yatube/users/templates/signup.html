@@ -8,11 +8,11 @@
             <div class="card-header">Зарегистрироваться</div>
             <div class="card-body">
 
-                    {% for error in form.errors %}
-                        <div class="alert alert-danger" role="alert">
-                            {{ error }}
-                        </div>
-                    {% endfor %}
+                {% for error in form.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                {% endfor %}
 
 
                 <form method="post" action="{% url 'signup' %}">

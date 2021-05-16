@@ -50,7 +50,7 @@ def profile(request, username):
     context = {
         'page': page,
         'author': author,
-        "posts_count": author.posts.count
+        "posts_count": author.posts.count()
     }
 
     return render(request, 'posts/profile.html', context)
@@ -62,7 +62,7 @@ def post_view(request, username, post_id):
     context = {
         "post": post,
         "author": post.author,
-        "posts_count": post.author.posts.count
+        "posts_count": post.author.posts.count()
     }
 
     return render(request, "posts/post.html", context)
@@ -75,7 +75,7 @@ def new_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            form.save()
+            post.save()
             return redirect("index")
     form = PostForm()
 
@@ -90,16 +90,13 @@ def new_post(request):
 def post_edit(request, username, post_id):
     post = get_object_or_404(Post, author__username=username, pk=post_id)
 
-    if request.user.username == username:
-        if request.method != 'POST':
-            form = PostForm(instance=post)
+    if request.user == post.author:
+        form = PostForm(instance=post, data=request.POST or None)
 
-        else:
-            form = PostForm(instance=post, data=request.POST)
+        if form.is_valid():
+            form.save()
 
-            if form.is_valid():
-                post.save()
-                return redirect('post', username=username, post_id=post_id)
+            return redirect('post', username=username, post_id=post_id)
 
         context = {
             'form': form,
